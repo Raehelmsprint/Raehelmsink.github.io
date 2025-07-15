@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rae Helms - Artist</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for the body */
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+        }
+        /* Style for navigation links */
+        .nav-link {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #9CA3AF; /* Tailwind's gray-400 */
+        }
+        /* Hide all content sections by default */
+        .content-section {
+            display: none;
+        }
+        /* Show the active content section */
+        .content-section.active {
+            display: block;
+        }
+        /* Consistent font size for the artist's name */
+        .artist-name {
+            font-size: 12px;
+        }
+        /* Padding for the main content area, removing left padding */
+        .main-content-area {
+            padding-top: 2rem;
+            padding-right: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 0;
+        }
+        /* Remove default link styles for portfolio items */
+        .portfolio-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        /* Padding for individual submenu links */
+        .submenu-link {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Left-side Navigation Panel -->
+        <aside class="w-full md:w-64 p-8 md:h-screen md:sticky top-0">
+            <div class="flex flex-col h-full">
+                <!-- Artist Name acts as Home button -->
+                <div class="artist-name font-medium mb-8 nav-link" onclick="showPage('home')">Rae Helms</div>
+                
+                <!-- Main Navigation -->
+                <nav class="flex flex-col space-y-2">
+                    <a onclick="showPage('portfolio')" class="nav-link">Portfolio</a>
+                    <!-- Portfolio Submenu -->
+                    <div id="portfolio-submenu" class="hidden flex flex-col space-y-2 pl-4 mt-2 mb-2">
+                        <a onclick="showPage('series1')" class="nav-link submenu-link">Asphalt, Parking Lot, Rain Garden</a>
+                        <a onclick="showPage('series2')" class="nav-link submenu-link">Index in Glass</a>
+                        <a onclick="showPage('series3')" class="nav-link submenu-link">Mojave</a>
+                        <a onclick="showPage('series4')" class="nav-link submenu-link">Blowing Clouds</a>
+                        <a onclick="showPage('series5')" class="nav-link submenu-link">Protest Language</a>
+                        <a onclick="showPage('series6')" class="nav-link submenu-link">Intersect</a>
+                        
+                    </div>
+                    
+                    <!-- NEW Collaborative Projects Section -->
+                    <a onclick="showPage('collaborative-projects')" class="nav-link">Collaborative Projects</a>
+                    <!-- Collaborative Projects Submenu -->
+                    <div id="collaborative-submenu" class="hidden flex flex-col space-y-2 pl-4 mt-2 mb-2">
+                        <a onclick="showPage('collab-series1')" class="nav-link submenu-link">Future Proof</a>
+                        <a onclick="showPage('collab-series2')" class="nav-link submenu-link">In-Between Spaces</a>
+                    </div>
+
+                    <a onclick="showPage('cv')" class="nav-link">CV</a>
+                    <a onclick="showPage('contact')" class="nav-link">Info</a>
+                </nav>
+
+                <!-- Footer with Copyright -->
+                <div class="mt-auto text-xs text-gray-500">
+                    <p>&copy; Rae Helms 2025</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right-side Content Panel -->
+        <main class="flex-1 main-content-area">
+            <!-- Home Section (Initially Visible) -->
+            <section id="home" class="content-section">
+                <div class="w-full h-full flex items-center justify-center">
+                    <img src="https://i.ibb.co/ymV0z1Xk/Helms-08.jpg" 
+                         alt="Placeholder for a large piece of artwork" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x600/e0e0e0/7f7f7f?text=Image+Not+Found';"
+                         class="max-w-full max-h-full object-contain rounded-lg">
+                </div>
+            </section>
+
+            <!-- Portfolio Overview Section -->
+            <section id="portfolio" class="content-section">
+                <h2 class="text-2xl font-bold mb-8">Portfolio</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a onclick="showPage('series1')" class="portfolio-link group"><img src="https://i.ibb.co/nNw9KdWW/Helms-13.jpg" alt="Placeholder for series 1" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Asphalt, Parking Lot, Rain Garden</p></a>
+                    <a onclick="showPage('series2')" class="portfolio-link group"><img src="https://i.ibb.co/yFg2sjYM/Helms-10.jpg" alt="Placeholder for series 2" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Index in Glass</p></a>
+                    <a onclick="showPage('series3')" class="portfolio-link group"><img src="https://i.ibb.co/whqRxTW9/IMG-5412-2.jpg" alt="Placeholder for series 3" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Mojave</p></a>
+                    <a onclick="showPage('series4')" class="portfolio-link group"><img src="https://i.ibb.co/TMQLyWH3/20231019-122659-2.jpg" alt="Placeholder for series 4" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Blowing Clouds</p></a>
+                    <a onclick="showPage('series5')" class="portfolio-link group"><img src="https://i.ibb.co/tMnkkb75/E42796-C7-B9-FF-4-B57-9-E36-88-CB0024905-A-2-copy.jpg" alt="Placeholder for series 5" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Protest Language</p></a>
+                    <a onclick="showPage('series6')" class="portfolio-link group"><img src="https://i.ibb.co/TGPcJC7/01-Helms.jpg" alt="Placeholder for series 6" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Intersect</p></a>
+  
+                </div>
+            </section>
+
+            <!-- NEW Collaborative Projects Landing Page -->
+            <section id="collaborative-projects" class="content-section">
+                <h2 class="text-2xl font-bold mb-8">Collaborative Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a onclick="showPage('collab-series1')" class="portfolio-link group"><img src="https://i.ibb.co/Z6m2zL02/IMG-3537-2.jpg" alt="Placeholder for Project A" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Future Proof, 2025</p><p class="text-xs text-gray-600"></p></a>
+                    <a onclick="showPage('collab-series2')" class="portfolio-link group"><img src="https://i.ibb.co/6cfkPyp8/in-between-2.jpg" alt="Placeholder for Project B" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">In-Between Spaces</p><p class="text-xs text-gray-600"></p></a>
+                </div>
+            </section>
+
+            <!-- Series Detail Pages -->
+            <section id="series1" class="content-section">
+                <h2 class="text-2xl font-bold mb-8">Asphalt, Parking Lot, Rain Garden</h2>
+                <div class="max-w-4xl mx-auto space-y-12">
+                    <div>
+                      <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>Asphalt, Parking Lot, Rain Garden explores themes of abandonment and renewal within Philadelphia's vacant lots. The work engages materials such as cracked sidewalks, displaced plants, salvaged debris, and remnants of urban systems, often neglected or erased. This work transforms signs of loss into symbols of renewal. Inscribing these elements embodies quiet defiance, turning anonymity into shared experiences and fragility into resilience. The exhibition explores the potential futures found in the spaces between what is discarded and what remains. It poses questions about how defiance can transform absence into a language of collectivity. What thrives when we reject systems of exhaustion? How does refusal help us find solidarity? </p>
+              </div>
+                  </div>
+                      <div><img src="https://i.ibb.co/chKY51YZ/Helms-02.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Asphalt, Parking Lot, Rain Garden (gallery installation shot) 2025 </p></div>
+                    <div><img src="https://i.ibb.co/nNw9KdWW/Helms-13.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Fault Lines (close up), 2025, Concrete, Glass, Dirt, Dandelion, clover, Goldenrod, Alfalfa</p></div>
+                    <div><img src="https://i.ibb.co/Hp4GQ2VB/Helms-15.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Fault Lines (close up), 2025, Concrete, Glass, Dirt, Dandelion, clover, Goldenrod, Alfalfa</p></div>
+                    <div><img src="https://i.ibb.co/qFF8Cmxc/Helms-10-edited.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">You (close-up), 2025, Reclaimed found windowpane from a collapsed West Philadelphia home. </p></div>
+                    <div><img src="https://i.ibb.co/w9ysvgL/Helms-06.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">In the living room peeling skins (close-up), 2025, Reclaimed found wooden beam from a collapsed West Philadelphia home.</p></div>
+                    <div><img src="https://i.ibb.co/WppMt5kR/Helms-05.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">To remain, 2025, Concrete, Glass, Dirt, Dandelion, clover, Goldenrod, Alfalfa </p></div>
+                    <div><img src="https://i.ibb.co/pj0XhYX5/Helms-03.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Fault Lines, 2025, Concrete, Glass, Dirt, Dandelion, clover, Goldenrod, Alfalfa </p></div>
+                    <div><img src="https://i.ibb.co/V0Z6kFjJ/Helms-04.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">In Memory of…, 2025, Spite bite aquatint on muslin</p></div>
+                    <div><img src="https://i.ibb.co/5gZJqkQ1/Helms-01.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Asphalt, Parking Lot, Rain Garden (gallery installation shot) 2025  </p></div>
+                </div>
+            </section>
+            <section id="series2" class="content-section"><h2 class="text-2xl font-bold mb-8">Index in Glass</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>
+This body of work employs print media and glass-blowing techniques to explore and distort the language found in printed ephemera, historical queer archives, protests, and poetry. I am particularly drawn to the cast shadows, reflections, and physical distortions that emerge within these materials. These elements reveal the framework of obscured information from media outlets, shedding light on the complexities of lived experiences.</p>
+              </div>
+              <div><img src="https://i.ibb.co/yFg2sjYM/Helms-10.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Preserved Ephemera, 2024, Screen print enamel on kiln-formed glass</p></div></div>
+              <div>
+    <img src="https://i.ibb.co/ymV0z1Xk/Helms-08.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Language Barriers, 2024, Screen print, blown glass</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/mrFD6bs9/Helms-09.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Language Barriers, 2024, Screen print, blown glass </p>
+</div></section>
+          
+            <section id="series3" class="content-section"><h2 class="text-2xl font-bold mb-8">Mojave</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>This series explores visibility and displacement through an assemblage of photography, printmaking, and glass-blowing. I look to create a sense of fragility in memories, and in illusions of the world we believe in while overcoming it through resilience. Through the layering of materials, I merge narratives and cast shadows, inviting viewers to question their perceptions, immediate surroundings, and ever-changing socio-political ecosystem.
+               
+                 <p style="text-left"  style="text-indent: 2em;">
+I am interested in the interplay of opacities and transparencies. By piecing together found photos, text, and objects, I seek to reflect upon themes of belonging in an ever-changing ecosystem. This process becomes a poetic reflection to contemplate the intricate dynamics of memory and place.</p>
+              </div>
+              <div><img src="https://i.ibb.co/MxDHBPxC/Helms-03.png" alt="Artwork from Series 3" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Mojave, 2024, archival pigment print, screenprint, monoprint, etching, blown glass</p></div></div><div>
+    <img src="https://i.ibb.co/wFptK29G/IMG-5418.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+                  <img src="https://i.ibb.co/bM37cNT2/IMG-5416.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+              <img src="https://i.ibb.co/7xHgS8Hj/IMG-5419.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+              <img src="https://i.ibb.co/TD1ygx8X/IMG-5412.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+               <img src="https://i.ibb.co/Gvrf3BRs/Helms-05.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+              <img src="https://i.ibb.co/xt08KY7j/IMG-5422.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+              
+</div></section>
+            <section id="series4" class="content-section"><h2 class="text-2xl font-bold mb-8">Blowing Clouds</h2><div class="max-w-4xl mx-auto space-y-12">
+              
+<div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>Blowing Clouds is an installation that features screen-printed cyanotype flags displayed in various public spaces throughout Philadelphia, PA. Over time, these flags have been exposed to the elements, resulting in physical damage and weathering. This work serves as a tribute to memorial sites dedicated to my queer community. The title, Blowing Clouds, also functions as a euphemism for drug addiction often encountered on queer dating sites. Through these installations, I aim to create a space for queer mourning and reflection.</p>
+              </div>
+  <div><img 
+            src="https://i.ibb.co/xKBh3rRM/20231019-122659.jpg" alt="Artwork from Series 4" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Blowing Clouds, 2023, installation, screen-print, cyanotype, wood</p></div></div>
+              
+              <div>
+    <img src="https://i.ibb.co/spbdcBkR/7534-edited.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/pqK7x8K/7578-edited.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/dsdPmgy3/7619-edited.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/Y7MfPMGJ/7633-edited.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+             
+              
+              <div>
+    <img src="https://i.ibb.co/pv44KN7B/20231013-171633.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/KjgYjsxH/7523-edited.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/RkSvjNXX/flags-Large.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+                
+                </div>
+              
+            </section>
+            <section id="series5" class="content-section"><h2 class="text-2xl font-bold mb-8">Protest Language</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>
+
+This work addresses the accumulation of protests occurring throughout the United States, contemplating the evolution of protest over time and the continuity of protest language throughout history. Additionally, it examines the existence and impact of protests both within and outside institutional spaces.</p>
+              </div>
+              <div><img src="https://i.ibb.co/rRhnQ0jZ/1-DBBC1-E8-4180-4-B5-E-A2-EF-2-E1-C325-E777-A.jpg" alt="Artwork from Series 5" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Resist, 2024, screenprint on silk</p></div></div>
+              <div>
+    <img src="https://i.ibb.co/G4mj73Tb/E42796-C7-B9-FF-4-B57-9-E36-88-CB0024905-A-2.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">In Times of Uncertainty, 2023, variable prints, lithography, screenprint </p>
+</div>
+            </section>
+            <section id="series6" class="content-section"><h2 class="text-2xl font-bold mb-8">Intersect</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>
+
+Intersect speaks to the ever-present injustices we face in contemporary society by depicting common scenes of urban spaces to display often ignored locations. The printed text documents imposed standards, stories from others, and frustrations towards wealth inequality in the USA. The merging of landscapes and text draws connections to the intersection of shared experiences.
+<div   style="text-indent: 2em;">
+I am influenced by the ephemeral nature of political posters, palimpsest, and the ability of these traces to evoke feelings of loss and destruction. My collages refer to the weathering of printed protests by utilizing distortion. The action of folding, tearing, and collaging physically represents neglect.
+
+</p>
+              </div>
+              <div><img src="https://i.ibb.co/FrM5ScJ/IMG-1360.jpg" alt="Artwork from Series 6" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Intersect (gallery installation shot), 2022</p></div></div>
+              <div>
+    <img src="https://i.ibb.co/1JBfM1ww/Memoir-Forget-bottom.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Forget/Memoire, 2022, Casted Bronze</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/zHLSXcq1/community-trespass-bottom.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Tresspass/Community, 2022, Casted Bronze</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/s9qmP7B5/10-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Liability, 2022, Screen-print Monotype, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/wFngM8Bw/09-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Private, 2022, 22x30”. Drypoint, Monoprint, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/V0JG02Cj/07-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Exclude, 2022, 15x22”, Screenprint, Monoprint, Collage, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/tPmJkhzM/04-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Hung, 2022, 22x30”, Screenprint, Monoprint, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/YT2jFccx/05-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Hidden, 2022, 33x40”, Screenprint, Monoprint, Collage, Chine-Collé</p>
+</div>
+              <div>
+    
+</div>
+              <div>
+    <img src="https://i.ibb.co/R42vv6QQ/02-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Critical, 2022, 22x15”, Screenprint, Monoprint, Collage, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/TGPcJC7/01-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Affiliated, 2022, 33x40”, Screenprint, Monoprint, Collage, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/DPLqj4Ts/06-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Intersect, 2022, 4 ½ x8’, Collage on Drywall with Monoprint, Acrylic, and Spray Paint</p>
+</div>
+            </section>
+            <section id="series7" class="content-section"><h2 class="text-2xl font-bold mb-8">Print Archive</h2><div class="max-w-4xl mx-auto space-y-12"><div><img src="https://placehold.co/1024x768/e2e8f0/cbd5e0?text=Series+7+Image+1" alt="Artwork from Series 7" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Artwork Title, Date</p></div></div></section>
+            
+            <!-- NEW Collaborative Project Detail Pages -->
+            <section id="collab-series1" class="content-section"><h2 class="text-2xl font-bold mb-8">Future Proof</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>
+
+Future Proof is a newspaper publication compendium of artistic visions in response to the present moment. Inviting in utopic visions, critical perspectives, contemporary narratives, and prototypes of futures. Artists include Corinne Teed, Amze Emmons, Katie Garth, Ruben Castillo, Nilou Kazemzadeh, Jake Lahah, Henry Rosenberg, Heather Swenson, Francesca Lally, and Rae Helms.</p>
+              </div>
+              <div><img src="https://i.ibb.co/hRSd14GP/IMG-9545.jpg" alt="Artwork from Project A" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600"></p></div></div>
+              <div>
+    <img src="https://i.ibb.co/4RjBggSZ/IMG-3537.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    
+            </section>
+            <section id="collab-series2" class="content-section"><h2 class="text-2xl font-bold mb-8">In-Between Spaces</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>
+
+Thinking through collage and assembly, Rae Helms and Ari Zuaro explore themes of the built environment, the spaces in-between, and the history of community in Philadelphia. In a collaborative effort, and as two artists new to the city, they work by observing and deconstructing both archives and language.</p>
+              </div>
+              <div><img src="https://i.ibb.co/mVpKXjp7/in-between-1.jpg" alt="Artwork from Project B" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">In-Between Spaces, 2024, 30x22”, Screenprint, Chine-Collé </p></div></div>
+              <div>
+    <img src="https://i.ibb.co/6cfkPyp8/in-between-2.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+            </section>
+
+            <!-- CV Section -->
+            <section id="cv" class="content-section">
+                <h2 class="text-2xl font-bold mb-8">CV</h2>
+                <div class="space-y-8">
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Education</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>MFA in Printmaking, Tyler School of Art and Architecture, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022</p><p>BFA in Printmaking, California State University – Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>BA in Art History, California State University – Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2018</p><p>Associate in Studio Arts - Antelope Valley College, Lancaster, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Associate in Art History - Antelope Valley College, Lancaster, CA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0"></p><p>Associate in Political Science - Antelope Valley College, Lancaster, CA</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Solo Exhibitions and Two Person Exhibitions</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>Asphalt, Parking Lot, Rain Garden, Temple Contemporary, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022</p><p>Intersect, B-So Gallery, Chico, CA</p></div>
+                       
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Selected Group Exhibitions</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>Tactical Communications, co-organized with by Francesca Lally, Escuela de Artes Plásticas y Diseño de Puerto Rico, San Juan, Puerto Rico</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Extraction and Repair, Glass Sustainability Mirco-Symposium, Tyler School of Art, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>All the small things, Micro Gallery, Philadelphia, PA, Curated by Srđan Tunić</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Storytellers, Temple Contemporary, Philadelphia, PA</p></div>
+                
+                
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>To hear to view, Icebox Project Space, Philadelphia, PA, Curated by Anthony Elms</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Echo-Systems, Temple Contemporary, Philadelphia, PA, Curated by Mollie Hansen</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Future Proof, Tyler Print Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Fuzzy Forms, Stella Elkins Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Cabinet Of., Vox Populi, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Edge Pattern, Tyler Print Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>In Flux, Atrium Gallery, Philadelphia PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Mini-Print Exchange, Ayres Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Observations, Tyler Print Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2023</p><p>Members Showcase, 1078 gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Pop Up Exhibition, Queer Art Club, Sacramento, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Enough is Enough: End Gun Violence, Haight Street Art Center, San Francisco, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Small Works and Altars, Chico Art Center, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Side by Side, Arthouse Gallery, Sacramento, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Bounds, Tyler Print Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022</p><p>Alternative Print Methods and Forms, Curated by Koichi Yamamoto, Aaron Wilson and Tim Dooley, Fresno, CA.</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>26th Annual Ink & Clay, Juror: Golbanou Moghaddas, Janet Turner Print Museum, Home, B-So Gallery, Chico, CA</p></div>
+                   
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Emergence, Chartreuse Muse Gallery, Modesto, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>37th Made in California, Brea Gallery, Brea, CA.</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Casting Memory, Bell Memorial Union Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>The Card Show, The Epitome Gallery, Eureka, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Art in the Valley, Arts Visalia, Visalia, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>This Way to Sustainability 2022, Conference and Exhibition. CSU Colleges, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2021</p><p>25th Annual Ink & Clay, Juror: Kimiko Miyoshi, The Turner Print Museum, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>65th Juried Student Exhibition, Juror: Reni Gower, Jacki Headley University Art Gallery, CSU-Chico</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>To Hold Another’s Hand, Jacki Headley University Art Gallery, CSU-Chico</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Mini-Print Exchange 2021, B-So Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>This Way to Sustainability 2021, Conference Exhibition, CSU Colleges, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Peripheral Prints, B-So Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2020</p><p>Reinventing Identity, Bell Memorial Union Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>14th Annual California Centered: Printmaking, Merced Multicultural Center, Merced, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>From the Ground Up, Brothers Gallery, Logan, UT</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Firing Imaginations, Carnegie Arts Center, Turlock, CA.</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Mojave Photography, MOAH Cedar Center, Lancaster, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>California Landscapes, The Museum of Northern California Art, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Off the Wall, B-So Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Imagine Together, 1078 Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>California Contemporary Sculpture, Juror: Linda Fleming, Chico Art Center, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Social Justice: Discovery Series, Juror: Carolyn Arredondo, Chico Arts Center, Chico, CA.</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0"></p><p>All-Media Annual Juried Exhibition, MOAH Cedar Center, Lancaster, CA</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Teaching Experience</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Survey of Etching and Relief, Instructor of Record, Tyler School of Art and Architecture, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022-2023</p><p>Teaching Assistant, Introduction to Printmaking and Intermediate Etching for Eileen Macdonald, California State University, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2020-2022</p><p>Art Instructor, Children’s Printmaking Workshop, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2021</p><p>Art Teacher, Philly Art Center, Philadelphia, PA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2019</p><p>Printmaking Instructor, Janet Turner Print Museum</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Professional Experience</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Printmaking Studio Technician, Tyler School of Art, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2020-2023</p><p>Studio Technician and Residency Program Assistant, CSU-Chico, California</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Lead Screen Printer and Press Operator, Silkshop, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Curatorial Assistant, Janet Turner Print Museum, Chico, CA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2017-2019</p><p>Gallery Assistant, MOAH, Lancaster, CA</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Visiting Artist Lectures and Presentations</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>No Office Space, SGCI Puertograbando Conference, San Juan, PR</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Accessing Archives: Transtemporal Connections, Transformative Practices, ASAP-15 (The Association for the Study of the Arts of the Present), New York City, NY</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Student Lightening Talks, SGCI, Providence, RI</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2022</p><p>Intersect - Dissonance in the built environment, Artist Talk, B-So Gallery, Chico, CA</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Curatorial and Collaborative Projects</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>Tactical Communications / Comunicación Táctica Co-organized with Francesca Lally, SGCI Puertograbando, San Juan, PR</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Fuzzy Forms, Co-organized with Maddie Rodriguez, Stella Elkins Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Observations, Tyler Print Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Share my Rage, fundraising workshop and exhibition, Big Ramp Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022</p><p>Home, Exhibition, Print Exchange, and fundraiser in collaboration with 6th street center for LGBT+ youth, B-So Gallery, Chico, CA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2021</p><p>To Hold Another’s Hand, DACA Print Fundraiser, CSU-Chico Printmaking Club</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Awards/Grants</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>Graduate Fellowship Award, Southern Graphics Council International, San Juan, Puerto Rico</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Dean’s Grant for Student Travel, Tyler School of Art and Architecture</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Graduate Internship and full scholarship, Temple University</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Dean’s Grant for Student Research, Tyler School of Art and Architecture</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022</p><p>Student Excellence in Art History and Art Award, College of Humanities and Fine Art, CSU-Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Jennifer Tancreto Award, Janet Turner Print Museum, Chico, CA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0"></p><p>Paul Feldhaus Purchase Award, Janet Turner Print Museum, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2021</p><p>Dean’s Award, Jacki Headley Gallery, Chico, CA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0"></p><p>Jennifer Tancreto Purchase Award, Janet Turner Print Museum, Chico, CA</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Publications and Press</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>Carte Blanche, Publication</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Tactical Communications, Publication and Print Exchange</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Commingle | Fragment, Publication and Print Exchange</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Intersections 2025, MFA Catalog</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>To hear to view, Exhibition Catalog</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Future Proof, Publication</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2020</p><p>Home, Exhibition Catalog</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Organizations</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2023-present</p><p>Graduate Arts Collective, Tyler School of Art, President</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Southern Graphics Council International, Member</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Mid America Print Council, Member</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>The Association for the Study of the Arts of the Present, Member</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2020-2022</p><p>Chico State Printmaking Club, President</p></div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Info Section -->
+<section id="contact" class="content-section">
+    <h2 class="text-2xl font-bold mb-8">Info</h2>
+    <div class="max-w-xl mx-auto flex flex-col items-center text-center">
+        
+        <!-- Headshot Image -->
+        <div class="mb-6">
+    <img src="https://i.ibb.co/pkVQ94d/82-CB077-A-DA36-497-A-A170-D5-C3143-CD49-B.jpg" 
+         alt="A headshot of Rae Helms" 
+         class="w-100 h-64 rounded-lg">
+</div>
+
+        <!-- Artist Statement / Bio Text Box -->
+        <div class="mb-8">
+        <!-- The "text-left" class forces this paragraph to be left-aligned -->
+        <h3 class="font-bold mb-2">Artist Statement</h3>
+          <p style="text-indent: 2em;" class="text-left">
+            I create works that invite reflection on how cycles of use, neglect, and transformation shape the spaces we inhabit and the relationships they sustain. Through poetic interventions between print, sculpture, and glass, I form narratives of loss, care, and resilience. In doing so, I engage with material histories of extraction and consumption. Investigating the human imprint on our environment, my work explores the fragility of place and the traces we leave behind.
+          <p>
+          </p>
+            <p style="text-indent: 2em;" class="text-left">
+             
+        	My practice is rooted in ecological resistance and examines the permanence of human impact while advocating for sustainable coexistence. I utilize remnants found in cities that serve as physical expressions of loss in both public and private spaces. These forms of remembrance raise questions about impermanence and the tension between preservation and erosion. I seek to preserve and to imagine new ways of caring for the spaces we inhabit, both individually and collectively. 
+            </p>
+      </div>
+      <h3 class="font-bold mb-2">Bio</h3>
+<p style="text-indent: 2em;" class="text-left">
+            Rae Helms is an interdisciplinary artist based in Philadelphia. Their work explores the intersection of queerness, ephemera, archival history, and language through print media, photography, glass, and installation. Helms received their BFA in Printmaking and BA in Art History from California State University - Chico, and a MFA in Printmaking at Tyler School of Art and Architecture.
+<p style="text-indent: 2em;" class="text-left">
+             
+Their work has been exhibited in San Francisco, Los Angeles, and Philadelphia. Helms was the recipient of the Jennifer Tancreto Award from the Janet Turner Printmaking Museum, the Dean's Award at CSU-Chico, and the Dean’s Grant for student research at Tyler School of Art. Rae has presented their research at Southern Graphic Council International and the Association for the Study of the Arts of the Present.
+<p style="text-indent: 2em;" class="text-left">
+             
+Rae's professional experience includes roles as a curatorial assistant at the Janet Turner Printmaking Museum, a printmaking studio technician, and an instructor of printmaking at CSU Chico. They also have a background in commercial screen-printing and the graphic design industry. Currently, Helms is an adjunct professor at Tyler School of Art and Architecture. 
+  </div>
+        <!-- Contact Info -->
+        <div class="space-y-2 mt-8 text-center">
+            <p>For inquiries, please contact:</p>
+            <a href="mailto:Raehelmsprint@gmail.com" class="hover:underline">Raehelmsprint@gmail.com</a>
+           <p>Instagram: <a href="https://www.instagram.com/printmakerrae/?hl=en" target="_blank" class="text-blue-600 hover:underline">@printmakerrae</a></p>
+        </div>
+
+    </div>
+</section></section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const portfolioSubmenu = document.getElementById('portfolio-submenu');
+            const collaborativeSubmenu = document.getElementById('collaborative-submenu');
+            const allSections = document.querySelectorAll('.content-section');
+
+            window.showPage = function(pageId) {
+                // Hide all sections first
+                allSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the target section
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+
+                // Logic for Portfolio submenu
+                const isPortfolioPage = pageId.startsWith('portfolio') || pageId.startsWith('series');
+                if (isPortfolioPage) {
+                    portfolioSubmenu.classList.remove('hidden');
+                } else {
+                    portfolioSubmenu.classList.add('hidden');
+                }
+
+                // Logic for Collaborative Projects submenu
+                const isCollabPage = pageId.startsWith('collaborative-projects') || pageId.startsWith('collab-series');
+                if (isCollabPage) {
+                    collaborativeSubmenu.classList.remove('hidden');
+                } else {
+                    collaborativeSubmenu.classList.add('hidden');
+                }
+            }
+
+            // Set the initial state when the page loads
+            showPage('home');
+        });
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rae Helms - Artist</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for the body */
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+        }
+        /* Style for navigation links */
+        .nav-link {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #9CA3AF; /* Tailwind's gray-400 */
+        }
+        /* Hide all content sections by default */
+        .content-section {
+            display: none;
+        }
+        /* Show the active content section */
+        .content-section.active {
+            display: block;
+        }
+        /* Consistent font size for the artist's name */
+        .artist-name {
+            font-size: 12px;
+        }
+        /* Padding for the main content area, removing left padding */
+        .main-content-area {
+            padding-top: 2rem;
+            padding-right: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 0;
+        }
+        /* Remove default link styles for portfolio items */
+        .portfolio-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        /* Padding for individual submenu links */
+        .submenu-link {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Left-side Navigation Panel -->
+        <aside class="w-full md:w-64 p-8 md:h-screen md:sticky top-0">
+            <div class="flex flex-col h-full">
+                <!-- Artist Name acts as Home button -->
+                <div class="artist-name font-medium mb-8 nav-link" onclick="showPage('home')">Rae Helms</div>
+                
+                <!-- Main Navigation -->
+                <nav class="flex flex-col space-y-2">
+                    <a onclick="showPage('portfolio')" class="nav-link">Portfolio</a>
+                    <!-- Portfolio Submenu -->
+                    <div id="portfolio-submenu" class="hidden flex flex-col space-y-2 pl-4 mt-2 mb-2">
+                        <a onclick="showPage('series1')" class="nav-link submenu-link">Asphalt, Parking Lot, Rain Garden</a>
+                        <a onclick="showPage('series2')" class="nav-link submenu-link">Index in Glass</a>
+                        <a onclick="showPage('series3')" class="nav-link submenu-link">Mojave</a>
+                        <a onclick="showPage('series4')" class="nav-link submenu-link">Blowing Clouds</a>
+                        <a onclick="showPage('series5')" class="nav-link submenu-link">Protest Language</a>
+                        <a onclick="showPage('series6')" class="nav-link submenu-link">Intersect</a>
+                        
+                    </div>
+                    
+                    <!-- NEW Collaborative Projects Section -->
+                    <a onclick="showPage('collaborative-projects')" class="nav-link">Collaborative Projects</a>
+                    <!-- Collaborative Projects Submenu -->
+                    <div id="collaborative-submenu" class="hidden flex flex-col space-y-2 pl-4 mt-2 mb-2">
+                        <a onclick="showPage('collab-series1')" class="nav-link submenu-link">Future Proof</a>
+                        <a onclick="showPage('collab-series2')" class="nav-link submenu-link">In-Between Spaces</a>
+                    </div>
+
+                    <a onclick="showPage('cv')" class="nav-link">CV</a>
+                    <a onclick="showPage('contact')" class="nav-link">Info</a>
+                </nav>
+
+                <!-- Footer with Copyright -->
+                <div class="mt-auto text-xs text-gray-500">
+                    <p>&copy; Rae Helms 2025</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right-side Content Panel -->
+        <main class="flex-1 main-content-area">
+            <!-- Home Section (Initially Visible) -->
+            <section id="home" class="content-section">
+                <div class="w-full h-full flex items-center justify-center">
+                    <img src="https://i.ibb.co/ymV0z1Xk/Helms-08.jpg" 
+                         alt="Placeholder for a large piece of artwork" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x600/e0e0e0/7f7f7f?text=Image+Not+Found';"
+                         class="max-w-full max-h-full object-contain rounded-lg">
+                </div>
+            </section>
+
+            <!-- Portfolio Overview Section -->
+            <section id="portfolio" class="content-section">
+                <h2 class="text-2xl font-bold mb-8">Portfolio</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a onclick="showPage('series1')" class="portfolio-link group"><img src="https://i.ibb.co/nNw9KdWW/Helms-13.jpg" alt="Placeholder for series 1" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Asphalt, Parking Lot, Rain Garden</p></a>
+                    <a onclick="showPage('series2')" class="portfolio-link group"><img src="https://i.ibb.co/yFg2sjYM/Helms-10.jpg" alt="Placeholder for series 2" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Index in Glass</p></a>
+                    <a onclick="showPage('series3')" class="portfolio-link group"><img src="https://i.ibb.co/whqRxTW9/IMG-5412-2.jpg" alt="Placeholder for series 3" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Mojave</p></a>
+                    <a onclick="showPage('series4')" class="portfolio-link group"><img src="https://i.ibb.co/TMQLyWH3/20231019-122659-2.jpg" alt="Placeholder for series 4" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Blowing Clouds</p></a>
+                    <a onclick="showPage('series5')" class="portfolio-link group"><img src="https://i.ibb.co/tMnkkb75/E42796-C7-B9-FF-4-B57-9-E36-88-CB0024905-A-2-copy.jpg" alt="Placeholder for series 5" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Protest Language</p></a>
+                    <a onclick="showPage('series6')" class="portfolio-link group"><img src="https://i.ibb.co/TGPcJC7/01-Helms.jpg" alt="Placeholder for series 6" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Intersect</p></a>
+  
+                </div>
+            </section>
+
+            <!-- NEW Collaborative Projects Landing Page -->
+            <section id="collaborative-projects" class="content-section">
+                <h2 class="text-2xl font-bold mb-8">Collaborative Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a onclick="showPage('collab-series1')" class="portfolio-link group"><img src="https://i.ibb.co/Z6m2zL02/IMG-3537-2.jpg" alt="Placeholder for Project A" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">Future Proof, 2025</p><p class="text-xs text-gray-600"></p></a>
+                    <a onclick="showPage('collab-series2')" class="portfolio-link group"><img src="https://i.ibb.co/6cfkPyp8/in-between-2.jpg" alt="Placeholder for Project B" class="w-full h-auto object-cover rounded-lg mb-2"><p class="text-sm">In-Between Spaces</p><p class="text-xs text-gray-600"></p></a>
+                </div>
+            </section>
+
+            <!-- Series Detail Pages -->
+            <section id="series1" class="content-section">
+                <h2 class="text-2xl font-bold mb-8">Asphalt, Parking Lot, Rain Garden</h2>
+                <div class="max-w-4xl mx-auto space-y-12">
+                    <div>
+                      <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>Asphalt, Parking Lot, Rain Garden explores themes of abandonment and renewal within Philadelphia's vacant lots. The work engages materials such as cracked sidewalks, displaced plants, salvaged debris, and remnants of urban systems, often neglected or erased. This work transforms signs of loss into symbols of renewal. Inscribing these elements embodies quiet defiance, turning anonymity into shared experiences and fragility into resilience. The exhibition explores the potential futures found in the spaces between what is discarded and what remains. It poses questions about how defiance can transform absence into a language of collectivity. What thrives when we reject systems of exhaustion? How does refusal help us find solidarity? </p>
+              </div>
+                  </div>
+                      <div><img src="https://i.ibb.co/chKY51YZ/Helms-02.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Asphalt, Parking Lot, Rain Garden (gallery installation shot) 2025 </p></div>
+                    <div><img src="https://i.ibb.co/nNw9KdWW/Helms-13.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Fault Lines (close up), 2025, Concrete, Glass, Dirt, Dandelion, clover, Goldenrod, Alfalfa</p></div>
+                    <div><img src="https://i.ibb.co/Hp4GQ2VB/Helms-15.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Fault Lines (close up), 2025, Concrete, Glass, Dirt, Dandelion, clover, Goldenrod, Alfalfa</p></div>
+                    <div><img src="https://i.ibb.co/qFF8Cmxc/Helms-10-edited.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">You (close-up), 2025, Reclaimed found windowpane from a collapsed West Philadelphia home. </p></div>
+                    <div><img src="https://i.ibb.co/w9ysvgL/Helms-06.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">In the living room peeling skins (close-up), 2025, Reclaimed found wooden beam from a collapsed West Philadelphia home.</p></div>
+                    <div><img src="https://i.ibb.co/WppMt5kR/Helms-05.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">To remain, 2025, Concrete, Glass, Dirt, Dandelion, clover, Goldenrod, Alfalfa </p></div>
+                    <div><img src="https://i.ibb.co/pj0XhYX5/Helms-03.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Fault Lines, 2025, Concrete, Glass, Dirt, Dandelion, clover, Goldenrod, Alfalfa </p></div>
+                    <div><img src="https://i.ibb.co/V0Z6kFjJ/Helms-04.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">In Memory of…, 2025, Spite bite aquatint on muslin</p></div>
+                    <div><img src="https://i.ibb.co/5gZJqkQ1/Helms-01.jpg" alt="Artwork from Series 1" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Asphalt, Parking Lot, Rain Garden (gallery installation shot) 2025  </p></div>
+                </div>
+            </section>
+            <section id="series2" class="content-section"><h2 class="text-2xl font-bold mb-8">Index in Glass</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>
+This body of work employs print media and glass-blowing techniques to explore and distort the language found in printed ephemera, historical queer archives, protests, and poetry. I am particularly drawn to the cast shadows, reflections, and physical distortions that emerge within these materials. These elements reveal the framework of obscured information from media outlets, shedding light on the complexities of lived experiences.</p>
+              </div>
+              <div><img src="https://i.ibb.co/yFg2sjYM/Helms-10.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Preserved Ephemera, 2024, Screen print enamel on kiln-formed glass</p></div></div>
+              <div>
+    <img src="https://i.ibb.co/ymV0z1Xk/Helms-08.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Language Barriers, 2024, Screen print, blown glass</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/mrFD6bs9/Helms-09.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Language Barriers, 2024, Screen print, blown glass </p>
+</div></section>
+          
+            <section id="series3" class="content-section"><h2 class="text-2xl font-bold mb-8">Mojave</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>This series explores visibility and displacement through an assemblage of photography, printmaking, and glass-blowing. I look to create a sense of fragility in memories, and in illusions of the world we believe in while overcoming it through resilience. Through the layering of materials, I merge narratives and cast shadows, inviting viewers to question their perceptions, immediate surroundings, and ever-changing socio-political ecosystem.
+               
+                 <p style="text-left"  style="text-indent: 2em;">
+I am interested in the interplay of opacities and transparencies. By piecing together found photos, text, and objects, I seek to reflect upon themes of belonging in an ever-changing ecosystem. This process becomes a poetic reflection to contemplate the intricate dynamics of memory and place.</p>
+              </div>
+              <div><img src="https://i.ibb.co/MxDHBPxC/Helms-03.png" alt="Artwork from Series 3" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Mojave, 2024, archival pigment print, screenprint, monoprint, etching, blown glass</p></div></div><div>
+    <img src="https://i.ibb.co/wFptK29G/IMG-5418.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+                  <img src="https://i.ibb.co/bM37cNT2/IMG-5416.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+              <img src="https://i.ibb.co/7xHgS8Hj/IMG-5419.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+              <img src="https://i.ibb.co/TD1ygx8X/IMG-5412.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+               <img src="https://i.ibb.co/Gvrf3BRs/Helms-05.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+              <img src="https://i.ibb.co/xt08KY7j/IMG-5422.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+              
+</div></section>
+            <section id="series4" class="content-section"><h2 class="text-2xl font-bold mb-8">Blowing Clouds</h2><div class="max-w-4xl mx-auto space-y-12">
+              
+<div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>Blowing Clouds is an installation that features screen-printed cyanotype flags displayed in various public spaces throughout Philadelphia, PA. Over time, these flags have been exposed to the elements, resulting in physical damage and weathering. This work serves as a tribute to memorial sites dedicated to my queer community. The title, Blowing Clouds, also functions as a euphemism for drug addiction often encountered on queer dating sites. Through these installations, I aim to create a space for queer mourning and reflection.</p>
+              </div>
+  <div><img 
+            src="https://i.ibb.co/xKBh3rRM/20231019-122659.jpg" alt="Artwork from Series 4" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Blowing Clouds, 2023, installation, screen-print, cyanotype, wood</p></div></div>
+              
+              <div>
+    <img src="https://i.ibb.co/spbdcBkR/7534-edited.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/pqK7x8K/7578-edited.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/dsdPmgy3/7619-edited.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/Y7MfPMGJ/7633-edited.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+             
+              
+              <div>
+    <img src="https://i.ibb.co/pv44KN7B/20231013-171633.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/KjgYjsxH/7523-edited.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/RkSvjNXX/flags-Large.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+                
+                </div>
+              
+            </section>
+            <section id="series5" class="content-section"><h2 class="text-2xl font-bold mb-8">Protest Language</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>
+
+This work addresses the accumulation of protests occurring throughout the United States, contemplating the evolution of protest over time and the continuity of protest language throughout history. Additionally, it examines the existence and impact of protests both within and outside institutional spaces.</p>
+              </div>
+              <div><img src="https://i.ibb.co/rRhnQ0jZ/1-DBBC1-E8-4180-4-B5-E-A2-EF-2-E1-C325-E777-A.jpg" alt="Artwork from Series 5" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Resist, 2024, screenprint on silk</p></div></div>
+              <div>
+    <img src="https://i.ibb.co/G4mj73Tb/E42796-C7-B9-FF-4-B57-9-E36-88-CB0024905-A-2.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">In Times of Uncertainty, 2023, variable prints, lithography, screenprint </p>
+</div>
+            </section>
+            <section id="series6" class="content-section"><h2 class="text-2xl font-bold mb-8">Intersect</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>
+
+Intersect speaks to the ever-present injustices we face in contemporary society by depicting common scenes of urban spaces to display often ignored locations. The printed text documents imposed standards, stories from others, and frustrations towards wealth inequality in the USA. The merging of landscapes and text draws connections to the intersection of shared experiences.
+<div   style="text-indent: 2em;">
+I am influenced by the ephemeral nature of political posters, palimpsest, and the ability of these traces to evoke feelings of loss and destruction. My collages refer to the weathering of printed protests by utilizing distortion. The action of folding, tearing, and collaging physically represents neglect.
+
+</p>
+              </div>
+              <div><img src="https://i.ibb.co/FrM5ScJ/IMG-1360.jpg" alt="Artwork from Series 6" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Intersect (gallery installation shot), 2022</p></div></div>
+              <div>
+    <img src="https://i.ibb.co/1JBfM1ww/Memoir-Forget-bottom.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Forget/Memoire, 2022, Casted Bronze</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/zHLSXcq1/community-trespass-bottom.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Tresspass/Community, 2022, Casted Bronze</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/s9qmP7B5/10-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Liability, 2022, Screen-print Monotype, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/wFngM8Bw/09-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Private, 2022, 22x30”. Drypoint, Monoprint, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/V0JG02Cj/07-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Exclude, 2022, 15x22”, Screenprint, Monoprint, Collage, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/tPmJkhzM/04-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Hung, 2022, 22x30”, Screenprint, Monoprint, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/YT2jFccx/05-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Hidden, 2022, 33x40”, Screenprint, Monoprint, Collage, Chine-Collé</p>
+</div>
+              <div>
+    
+</div>
+              <div>
+    <img src="https://i.ibb.co/R42vv6QQ/02-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Critical, 2022, 22x15”, Screenprint, Monoprint, Collage, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/TGPcJC7/01-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Affiliated, 2022, 33x40”, Screenprint, Monoprint, Collage, Chine-Collé</p>
+</div>
+              <div>
+    <img src="https://i.ibb.co/DPLqj4Ts/06-Helms.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600">Intersect, 2022, 4 ½ x8’, Collage on Drywall with Monoprint, Acrylic, and Spray Paint</p>
+</div>
+            </section>
+            <section id="series7" class="content-section"><h2 class="text-2xl font-bold mb-8">Print Archive</h2><div class="max-w-4xl mx-auto space-y-12"><div><img src="https://placehold.co/1024x768/e2e8f0/cbd5e0?text=Series+7+Image+1" alt="Artwork from Series 7" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">Artwork Title, Date</p></div></div></section>
+            
+            <!-- NEW Collaborative Project Detail Pages -->
+            <section id="collab-series1" class="content-section"><h2 class="text-2xl font-bold mb-8">Future Proof</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>
+
+Future Proof is a newspaper publication compendium of artistic visions in response to the present moment. Inviting in utopic visions, critical perspectives, contemporary narratives, and prototypes of futures. Artists include Corinne Teed, Amze Emmons, Katie Garth, Ruben Castillo, Nilou Kazemzadeh, Jake Lahah, Henry Rosenberg, Heather Swenson, Francesca Lally, and Rae Helms.</p>
+              </div>
+              <div><img src="https://i.ibb.co/hRSd14GP/IMG-9545.jpg" alt="Artwork from Project A" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600"></p></div></div>
+              <div>
+    <img src="https://i.ibb.co/4RjBggSZ/IMG-3537.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+              <div>
+    
+            </section>
+            <section id="collab-series2" class="content-section"><h2 class="text-2xl font-bold mb-8">In-Between Spaces</h2><div class="max-w-4xl mx-auto space-y-12">
+              <div class="max-w-4xl mx-auto mt-12 text-left"  style="text-indent: 2em;">
+                    <p>
+
+Thinking through collage and assembly, Rae Helms and Ari Zuaro explore themes of the built environment, the spaces in-between, and the history of community in Philadelphia. In a collaborative effort, and as two artists new to the city, they work by observing and deconstructing both archives and language.</p>
+              </div>
+              <div><img src="https://i.ibb.co/mVpKXjp7/in-between-1.jpg" alt="Artwork from Project B" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg"><p class="mt-2 text-sm text-gray-600">In-Between Spaces, 2024, 30x22”, Screenprint, Chine-Collé </p></div></div>
+              <div>
+    <img src="https://i.ibb.co/6cfkPyp8/in-between-2.jpg" alt="Artwork from Series 2" onerror="this.onerror=null;this.src='https://placehold.co/1024x768/e0e0e0/7f7f7f?text=Image+Not+Found';" class="w-full h-auto object-contain rounded-lg">
+    <p class="mt-2 text-sm text-gray-600"></p>
+</div>
+            </section>
+
+            <!-- CV Section -->
+            <section id="cv" class="content-section">
+                <h2 class="text-2xl font-bold mb-8">CV</h2>
+                <div class="space-y-8">
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Education</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>MFA in Printmaking, Tyler School of Art and Architecture, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022</p><p>BFA in Printmaking, California State University – Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>BA in Art History, California State University – Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2018</p><p>Associate in Studio Arts - Antelope Valley College, Lancaster, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Associate in Art History - Antelope Valley College, Lancaster, CA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0"></p><p>Associate in Political Science - Antelope Valley College, Lancaster, CA</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Solo Exhibitions and Two Person Exhibitions</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>Asphalt, Parking Lot, Rain Garden, Temple Contemporary, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022</p><p>Intersect, B-So Gallery, Chico, CA</p></div>
+                       
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Selected Group Exhibitions</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>Tactical Communications, co-organized with by Francesca Lally, Escuela de Artes Plásticas y Diseño de Puerto Rico, San Juan, Puerto Rico</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Extraction and Repair, Glass Sustainability Mirco-Symposium, Tyler School of Art, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>All the small things, Micro Gallery, Philadelphia, PA, Curated by Srđan Tunić</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Storytellers, Temple Contemporary, Philadelphia, PA</p></div>
+                
+                
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>To hear to view, Icebox Project Space, Philadelphia, PA, Curated by Anthony Elms</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Echo-Systems, Temple Contemporary, Philadelphia, PA, Curated by Mollie Hansen</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Future Proof, Tyler Print Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Fuzzy Forms, Stella Elkins Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Cabinet Of., Vox Populi, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Edge Pattern, Tyler Print Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>In Flux, Atrium Gallery, Philadelphia PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Mini-Print Exchange, Ayres Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Observations, Tyler Print Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2023</p><p>Members Showcase, 1078 gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Pop Up Exhibition, Queer Art Club, Sacramento, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Enough is Enough: End Gun Violence, Haight Street Art Center, San Francisco, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Small Works and Altars, Chico Art Center, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Side by Side, Arthouse Gallery, Sacramento, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Bounds, Tyler Print Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022</p><p>Alternative Print Methods and Forms, Curated by Koichi Yamamoto, Aaron Wilson and Tim Dooley, Fresno, CA.</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>26th Annual Ink & Clay, Juror: Golbanou Moghaddas, Janet Turner Print Museum, Home, B-So Gallery, Chico, CA</p></div>
+                   
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Emergence, Chartreuse Muse Gallery, Modesto, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>37th Made in California, Brea Gallery, Brea, CA.</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Casting Memory, Bell Memorial Union Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>The Card Show, The Epitome Gallery, Eureka, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Art in the Valley, Arts Visalia, Visalia, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>This Way to Sustainability 2022, Conference and Exhibition. CSU Colleges, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2021</p><p>25th Annual Ink & Clay, Juror: Kimiko Miyoshi, The Turner Print Museum, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>65th Juried Student Exhibition, Juror: Reni Gower, Jacki Headley University Art Gallery, CSU-Chico</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>To Hold Another’s Hand, Jacki Headley University Art Gallery, CSU-Chico</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Mini-Print Exchange 2021, B-So Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>This Way to Sustainability 2021, Conference Exhibition, CSU Colleges, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Peripheral Prints, B-So Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2020</p><p>Reinventing Identity, Bell Memorial Union Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>14th Annual California Centered: Printmaking, Merced Multicultural Center, Merced, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>From the Ground Up, Brothers Gallery, Logan, UT</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Firing Imaginations, Carnegie Arts Center, Turlock, CA.</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Mojave Photography, MOAH Cedar Center, Lancaster, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>California Landscapes, The Museum of Northern California Art, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Off the Wall, B-So Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Imagine Together, 1078 Gallery, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>California Contemporary Sculpture, Juror: Linda Fleming, Chico Art Center, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Social Justice: Discovery Series, Juror: Carolyn Arredondo, Chico Arts Center, Chico, CA.</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0"></p><p>All-Media Annual Juried Exhibition, MOAH Cedar Center, Lancaster, CA</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Teaching Experience</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Survey of Etching and Relief, Instructor of Record, Tyler School of Art and Architecture, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022-2023</p><p>Teaching Assistant, Introduction to Printmaking and Intermediate Etching for Eileen Macdonald, California State University, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2020-2022</p><p>Art Instructor, Children’s Printmaking Workshop, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2021</p><p>Art Teacher, Philly Art Center, Philadelphia, PA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2019</p><p>Printmaking Instructor, Janet Turner Print Museum</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Professional Experience</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Printmaking Studio Technician, Tyler School of Art, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2020-2023</p><p>Studio Technician and Residency Program Assistant, CSU-Chico, California</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Lead Screen Printer and Press Operator, Silkshop, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Curatorial Assistant, Janet Turner Print Museum, Chico, CA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2017-2019</p><p>Gallery Assistant, MOAH, Lancaster, CA</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Visiting Artist Lectures and Presentations</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>No Office Space, SGCI Puertograbando Conference, San Juan, PR</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Accessing Archives: Transtemporal Connections, Transformative Practices, ASAP-15 (The Association for the Study of the Arts of the Present), New York City, NY</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Student Lightening Talks, SGCI, Providence, RI</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2022</p><p>Intersect - Dissonance in the built environment, Artist Talk, B-So Gallery, Chico, CA</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Curatorial and Collaborative Projects</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>Tactical Communications / Comunicación Táctica Co-organized with Francesca Lally, SGCI Puertograbando, San Juan, PR</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Fuzzy Forms, Co-organized with Maddie Rodriguez, Stella Elkins Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Observations, Tyler Print Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Share my Rage, fundraising workshop and exhibition, Big Ramp Gallery, Philadelphia, PA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022</p><p>Home, Exhibition, Print Exchange, and fundraiser in collaboration with 6th street center for LGBT+ youth, B-So Gallery, Chico, CA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2021</p><p>To Hold Another’s Hand, DACA Print Fundraiser, CSU-Chico Printmaking Club</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Awards/Grants</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>Graduate Fellowship Award, Southern Graphics Council International, San Juan, Puerto Rico</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Dean’s Grant for Student Travel, Tyler School of Art and Architecture</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Graduate Internship and full scholarship, Temple University</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Dean’s Grant for Student Research, Tyler School of Art and Architecture</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2022</p><p>Student Excellence in Art History and Art Award, College of Humanities and Fine Art, CSU-Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Jennifer Tancreto Award, Janet Turner Print Museum, Chico, CA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0"></p><p>Paul Feldhaus Purchase Award, Janet Turner Print Museum, Chico, CA</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2021</p><p>Dean’s Award, Jacki Headley Gallery, Chico, CA</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0"></p><p>Jennifer Tancreto Purchase Award, Janet Turner Print Museum, Chico, CA</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Publications and Press</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2025</p><p>Carte Blanche, Publication</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Tactical Communications, Publication and Print Exchange</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Commingle | Fragment, Publication and Print Exchange</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Intersections 2025, MFA Catalog</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>To hear to view, Exhibition Catalog</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2024</p><p>Future Proof, Publication</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2020</p><p>Home, Exhibition Catalog</p></div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">Organizations</h3>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0">2023-present</p><p>Graduate Arts Collective, Tyler School of Art, President</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Southern Graphics Council International, Member</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>Mid America Print Council, Member</p></div>
+                        <div class="flex mb-1"><p class="w-20 flex-shrink-0"></p><p>The Association for the Study of the Arts of the Present, Member</p></div>
+                        <div class="flex"><p class="w-20 flex-shrink-0">2020-2022</p><p>Chico State Printmaking Club, President</p></div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Info Section -->
+<section id="contact" class="content-section">
+    <h2 class="text-2xl font-bold mb-8">Info</h2>
+    <div class="max-w-xl mx-auto flex flex-col items-center text-center">
+        
+        <!-- Headshot Image -->
+        <div class="mb-6">
+    <img src="https://i.ibb.co/pkVQ94d/82-CB077-A-DA36-497-A-A170-D5-C3143-CD49-B.jpg" 
+         alt="A headshot of Rae Helms" 
+         class="w-100 h-64 rounded-lg">
+</div>
+
+        <!-- Artist Statement / Bio Text Box -->
+        <div class="mb-8">
+        <!-- The "text-left" class forces this paragraph to be left-aligned -->
+        <h3 class="font-bold mb-2">Artist Statement</h3>
+          <p style="text-indent: 2em;" class="text-left">
+            I create works that invite reflection on how cycles of use, neglect, and transformation shape the spaces we inhabit and the relationships they sustain. Through poetic interventions between print, sculpture, and glass, I form narratives of loss, care, and resilience. In doing so, I engage with material histories of extraction and consumption. Investigating the human imprint on our environment, my work explores the fragility of place and the traces we leave behind.
+          <p>
+          </p>
+            <p style="text-indent: 2em;" class="text-left">
+             
+        	My practice is rooted in ecological resistance and examines the permanence of human impact while advocating for sustainable coexistence. I utilize remnants found in cities that serve as physical expressions of loss in both public and private spaces. These forms of remembrance raise questions about impermanence and the tension between preservation and erosion. I seek to preserve and to imagine new ways of caring for the spaces we inhabit, both individually and collectively. 
+            </p>
+      </div>
+      <h3 class="font-bold mb-2">Bio</h3>
+<p style="text-indent: 2em;" class="text-left">
+            Rae Helms is an interdisciplinary artist based in Philadelphia. Their work explores the intersection of queerness, ephemera, archival history, and language through print media, photography, glass, and installation. Helms received their BFA in Printmaking and BA in Art History from California State University - Chico, and a MFA in Printmaking at Tyler School of Art and Architecture.
+<p style="text-indent: 2em;" class="text-left">
+             
+Their work has been exhibited in San Francisco, Los Angeles, and Philadelphia. Helms was the recipient of the Jennifer Tancreto Award from the Janet Turner Printmaking Museum, the Dean's Award at CSU-Chico, and the Dean’s Grant for student research at Tyler School of Art. Rae has presented their research at Southern Graphic Council International and the Association for the Study of the Arts of the Present.
+<p style="text-indent: 2em;" class="text-left">
+             
+Rae's professional experience includes roles as a curatorial assistant at the Janet Turner Printmaking Museum, a printmaking studio technician, and an instructor of printmaking at CSU Chico. They also have a background in commercial screen-printing and the graphic design industry. Currently, Helms is an adjunct professor at Tyler School of Art and Architecture. 
+  </div>
+        <!-- Contact Info -->
+        <div class="space-y-2 mt-8 text-center">
+            <p>For inquiries, please contact:</p>
+            <a href="mailto:Raehelmsprint@gmail.com" class="hover:underline">Raehelmsprint@gmail.com</a>
+           <p>Instagram: <a href="https://www.instagram.com/printmakerrae/?hl=en" target="_blank" class="text-blue-600 hover:underline">@printmakerrae</a></p>
+        </div>
+
+    </div>
+</section></section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const portfolioSubmenu = document.getElementById('portfolio-submenu');
+            const collaborativeSubmenu = document.getElementById('collaborative-submenu');
+            const allSections = document.querySelectorAll('.content-section');
+
+            window.showPage = function(pageId) {
+                // Hide all sections first
+                allSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the target section
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+
+                // Logic for Portfolio submenu
+                const isPortfolioPage = pageId.startsWith('portfolio') || pageId.startsWith('series');
+                if (isPortfolioPage) {
+                    portfolioSubmenu.classList.remove('hidden');
+                } else {
+                    portfolioSubmenu.classList.add('hidden');
+                }
+
+                // Logic for Collaborative Projects submenu
+                const isCollabPage = pageId.startsWith('collaborative-projects') || pageId.startsWith('collab-series');
+                if (isCollabPage) {
+                    collaborativeSubmenu.classList.remove('hidden');
+                } else {
+                    collaborativeSubmenu.classList.add('hidden');
+                }
+            }
+
+            // Set the initial state when the page loads
+            showPage('home');
+        });
+    </script>
+
+</body>
+</html>
